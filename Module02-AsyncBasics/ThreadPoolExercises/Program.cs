@@ -12,11 +12,17 @@ namespace ThreadPoolExercises
 
             Console.WriteLine($"Main thread is {Thread.CurrentThread.ManagedThreadId}");
 
-            ThreadingHelpers.ExecuteOnThread(() =>
-            {
-                var thread = Thread.CurrentThread;
-                Console.WriteLine($"Hello from thread {thread.ManagedThreadId} from a pool: {thread.IsThreadPoolThread}");
-            }, 3);
+            //ThreadingHelpers.ExecuteOnThread(() =>
+            //{
+            //    var thread = Thread.CurrentThread;
+            //    Console.WriteLine($"Hello from thread {thread.ManagedThreadId} from a pool: {thread.IsThreadPoolThread}");
+            //}, 3);
+
+            //ThreadingHelpers.ExecuteOnThread(() =>
+            //{
+            //    var thread = Thread.CurrentThread;
+            //    Console.WriteLine($"Hello from thread {thread.ManagedThreadId} from a pool: {thread.IsThreadPoolThread}");
+            //}, 0);
 
             ThreadingHelpers.ExecuteOnThreadPool(() =>
             {
@@ -24,6 +30,9 @@ namespace ThreadPoolExercises
                 Console.WriteLine(
                     $"Hello from thread {thread.ManagedThreadId} from a pool: {thread.IsThreadPoolThread}");
             }, 3);
+
+            Console.WriteLine("The end");
+            //Console.ReadLine();
         }
     }
 }
